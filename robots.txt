@@ -1,0 +1,5 @@
+# ANTEPRIMA: al lancio sostituire con "Allow: /"
+User-agent: *
+Disallow: /
+
+# Sitemap: https://www.michelemascia.it/sitemap.xml
