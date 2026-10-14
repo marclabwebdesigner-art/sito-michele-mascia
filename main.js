@@ -1,4 +1,4 @@
-// Ogni pagina si apre dall'inizio (alcuni contenitori, es. anteprime incorporate, mantengono lo scroll della pagina precedente)
+// Ogni pagina si apre dall'inizio (alcuni browser e contenitori mantengono lo scroll della pagina precedente)
 if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
 if (!location.hash) {
   // salto istantaneo (lo scroll-behavior smooth del CSS lo renderebbe interrompibile) e ripetuto a pagina caricata
@@ -68,7 +68,7 @@ if (!reduceMotion && 'IntersectionObserver' in window) {
   }, { threshold: 0.08, rootMargin: '0px 0px 80px 0px' });
   document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
 
-  // Contatori hero: 12+, 9K+, 6
+  // Contatori delle cifre nell'hero
   document.querySelectorAll('.stats strong').forEach((el) => {
     const match = el.textContent.match(/^(\d+)(.*)$/);
     if (!match) return;
@@ -87,7 +87,7 @@ if (!reduceMotion && 'IntersectionObserver' in window) {
   });
 }
 
-// Organi non ancora generati: nasconde l'icona di immagine rotta
+// Immagini decorative: se mancano, nasconde l'icona di immagine rotta
 document.querySelectorAll('img.organ').forEach((img) => {
   const hide = () => { img.style.visibility = 'hidden'; };
   if (img.complete && !img.naturalWidth) hide();
@@ -101,13 +101,6 @@ if (header) {
   window.addEventListener('scroll', onHeaderScroll, { passive: true });
   onHeaderScroll();
 }
-
-// Avatar recensioni: se la foto manca restano le iniziali
-document.querySelectorAll('.avatar img').forEach((img) => {
-  const hide = () => img.remove();
-  if (img.complete && !img.naturalWidth) hide();
-  else img.addEventListener('error', hide);
-});
 
 // Bottoni primari: livelli per lama di luce, bagliore e freccia
 document.querySelectorAll('.btn:not(.btn--outline):not(.btn--ghost):not(.btn--light)').forEach((btn) => {
