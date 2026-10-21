@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
 
+# Google Immagini: le foto ritagliate senza sfondo non vanno usate come miniatura (restano visibili nel sito); valgono le versioni con il fondo sfumato
+User-agent: Googlebot-Image
+Disallow: /assets/img/michele-scontornato.webp
+Disallow: /assets/img/michele-scontornato-480.webp
+
 Sitemap: https://www.michelemascia.it/sitemap.xml
